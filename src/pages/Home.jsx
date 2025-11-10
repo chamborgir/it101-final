@@ -1,99 +1,91 @@
-// src/pages/Home.jsx
 import React, { useState } from "react";
-import { Link, useOutletContext } from "react-router-dom";
+import { Link } from "react-router-dom";
+// Fix: Removed file extensions from imports, as this can sometimes cause resolution issues.
+import { products } from "../data";
 
 function Home() {
-    const { slideIndex } = useOutletContext();
+    const [slideIndex, setSlideIndex] = useState(0);
+
+    // This click handler is simplified and now lives in Home.jsx
+    const handleMenuClick = (index) => {
+        setSlideIndex(index % products.length);
+    };
 
     return (
         <>
-            {/* Product Slider */}
+            {/* The Menu Items are now part of the Homepage, not the NavBar */}
+            <div className="navBottom">
+                <h3
+                    /* This logic adds the 'active' class when slideIndex is 0 */
+                    className={`menuItem ${slideIndex === 0 ? "active" : ""}`}
+                    onClick={() => handleMenuClick(0)}
+                >
+                    AIR FORCE
+                </h3>
+                <h3
+                    /* This logic adds the 'active' class when slideIndex is 1 */
+                    className={`menuItem ${slideIndex === 1 ? "active" : ""}`}
+                    onClick={() => handleMenuClick(1)}
+                >
+                    JORDAN
+                </h3>
+                <h3
+                    /* This logic adds the 'active' class when slideIndex is 2 */
+                    className={`menuItem ${slideIndex === 2 ? "active" : ""}`}
+                    onClick={() => handleMenuClick(2)}
+                >
+                    BLAZER
+                </h3>
+            </div>
+
+            {/* Product Slider is now dynamic */}
             <div className="slider">
                 <div
                     className="sliderWrapper"
                     style={{ transform: `translateX(${-100 * slideIndex}vw)` }}
                 >
-                    <div className="sliderItem">
-                        <img src="img/air.png" alt="" className="sliderImg" />
-                        <div className="sliderBg"></div>
-                        <h1 className="sliderTitle">
-                            AIR FORCE <br />
-                            NEW <br />
-                            SEASON
-                        </h1>
-                        <h2 className="sliderPrice">₱6,499</h2>
-                        <Link to="/product">
-                            <button className="buyButton">BUY NOW!</button>
-                        </Link>
-                    </div>
-                    <div className="sliderItem">
-                        <img
-                            src="img/jordan.png"
-                            alt=""
-                            className="sliderImg"
-                        />
-                        <div className="sliderBg"></div>
-                        <h1 className="sliderTitle">
-                            JORDAN
-                            <br />
-                            NEW <br />
-                            SEASON
-                        </h1>
-                        <h2 className="sliderPrice">₱8,099</h2>
-                        <button className="soldOutButton">SOLD OUT</button>
-                    </div>
-                    <div className="sliderItem">
-                        <img
-                            src="img/blazer.png"
-                            alt=""
-                            className="sliderImg"
-                        />
-                        <div className="sliderBg"></div>
-                        <h1 className="sliderTitle">
-                            BLAZER
-                            <br />
-                            NEW <br />
-                            SEASON
-                        </h1>
-                        <h2 className="sliderPrice">₱5,699</h2>
-                        <button className="soldOutButton">SOLD OUT</button>
-                    </div>
-                    <div className="sliderItem">
-                        <img
-                            src="img/crater.png"
-                            alt=""
-                            className="sliderImg"
-                        />
-                        <div className="sliderBg"></div>
-                        <h1 className="sliderTitle">
-                            CRATER
-                            <br />
-                            NEW <br />
-                            SEASON
-                        </h1>
-                        <h2 className="sliderPrice">₱6,999</h2>
-                        <button className="soldOutButton">SOLD OUT</button>
-                    </div>
-                    <div className="sliderItem">
-                        <img
-                            src="img/hippie.png"
-                            alt=""
-                            className="sliderImg"
-                        />
-                        <div className="sliderBg"></div>
-                        <h1 className="sliderTitle">
-                            HIPPIE
-                            <br />
-                            NEW <br />
-                            SEASON
-                        </h1>
-                        <h2 className="sliderPrice">₱5,399</h2>
-                        <button className="soldOutButton">SOLD OUT</button>
-                    </div>
+                    {/* We map over the products array to create a slide for each one */}
+                    {products.map((product) => (
+                        <div className="sliderItem" key={product.id}>
+                            <img
+                                src={product.img}
+                                alt={product.title}
+                                className="sliderImg"
+                            />
+                            <div
+                                className="sliderBg"
+                                style={{ backgroundColor: product.sliderBg }}
+                            ></div>
+                            <h1 className="sliderTitle">
+                                {product.title} <br />
+                                NEW <br />
+                                SEASON
+                            </h1>
+                            {/* Fixed typo: SsliderBg -> sliderBg */}
+                            <h2
+                                className="sliderPrice"
+                                style={{ color: product.sliderBg }}
+                            >
+                                ₱{product.price}
+                            </h2>
+                            {/* Check if sold out, otherwise link to the correct product page */}
+                            {product.isSoldOut ? (
+                                <button className="soldOutButton">
+                                    SOLD OUT
+                                </button>
+                            ) : (
+                                <Link to={`/product`}>
+                                    <button className="buyButton">
+                                        BUY NOW!
+                                    </button>
+                                </Link>
+                            )}
+                        </div>
+                    ))}
                 </div>
             </div>
 
-            {/* Features Section */}
+            {/* Features Section (no change) */}
             <div className="features">
                 <div className="feature">
                     <img
@@ -106,7 +98,6 @@ function Home() {
                         Free nationwide shipping on all orders.
                     </span>
                 </div>
-
                 <div className="feature">
                     <img src="img/return.png" alt="" className="featureIcon" />
                     <span className="featureTitle">30 DAYS RETURN</span>
@@ -114,7 +105,6 @@ function Home() {
                         No question return and easy refund in 14 days.
                     </span>
                 </div>
-
                 <div className="feature">
                     <img src="img/gift.png" alt="" className="featureIcon" />
                     <span className="featureTitle">GIFT CARDS</span>
@@ -122,7 +112,6 @@ function Home() {
                         Buy gift cards and use coupon codes easily.
                     </span>
                 </div>
-
                 <div className="feature">
                     <img src="img/contact.png" alt="" className="featureIcon" />
                     <span className="featureTitle">CONTACT US!</span>

@@ -1,15 +1,29 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate to go back
 
-function NavBar({ setSlideIndex }) {
-    const handleMenuClick = (index) => {
-        setSlideIndex(index);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    };
+/**
+ * A reusable Navbar component.
+ * @param {object} props
+ * @param {'home' | 'product'} props.page - Specifies which navBottom to render.
+ */
+function NavBar({ page }) {
+    // onMenuClick prop is no longer needed
+    const navigate = useNavigate(); // Get the navigate function from the router
 
     return (
         <nav>
+            {/* This navTop is ALSO conditional based on the 'page' prop */}
             <div className="navTop">
-                <div className="logo"></div>
+                {/* This is the new conditional logic: */}
+                {page === "home" ? (
+                    <div className="logo"></div> // The empty logo div from index.html
+                ) : (
+                    <div className="navbarItem">
+                        <img src="img/logo.png" width="250" alt="logo" />
+                    </div>
+                )}
+
+                {/* The rest of the navTop remains the same for both pages */}
                 <div className="navItem">
                     <div className="search">
                         <input
@@ -20,7 +34,8 @@ function NavBar({ setSlideIndex }) {
                         <img
                             src="/img/search.png"
                             width="20"
-                            alt=""
+                            height="20"
+                            alt="search"
                             className="searchIcon"
                         />
                     </div>
@@ -30,18 +45,6 @@ function NavBar({ setSlideIndex }) {
                         Unofficial <b>Nike™</b> Reseller
                     </p>
                 </div>
-            </div>
-
-            <div className="navBottom">
-                <h3 className="menuItem" onClick={() => handleMenuClick(0)}>
-                    AIR FORCE
-                </h3>
-                <h3 className="menuItem" onClick={() => handleMenuClick(1)}>
-                    JORDAN
-                </h3>
-                <h3 className="menuItem" onClick={() => handleMenuClick(2)}>
-                    BLAZER
-                </h3>
             </div>
         </nav>
     );

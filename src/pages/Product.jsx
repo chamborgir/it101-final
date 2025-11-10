@@ -34,55 +34,59 @@ function Product() {
     return (
         <>
             {/* Products */}
+
             <div className="product" id="product">
-                <img
-                    src={choosenProduct.colors[selectedColorIndex].img}
-                    alt=""
-                    className="productImg"
-                />
-                <div className="productDetails">
-                    <h1 className="productTitle">{choosenProduct.title}</h1>
-                    <h2 className="productPrice">₱{choosenProduct.price}</h2>
-                    <p className="productDesc">{choosenProduct.desc}</p>
-                    <div className="colors">
-                        {choosenProduct.colors.map((color, index) => (
-                            <div
-                                className="color"
-                                key={index}
-                                style={{ backgroundColor: color.code }}
-                                onClick={() => setSelectedColorIndex(index)}
-                            ></div>
-                        ))}
-                    </div>
-                    <div className="sizes">
-                        {SIZES.map((size, index) => (
-                            <div
-                                className="size"
-                                key={index}
-                                onClick={() => setSelectedSizeIndex(index)}
-                                style={{
-                                    backgroundColor:
-                                        selectedSizeIndex === index
-                                            ? "black"
-                                            : "white",
-                                    color:
-                                        selectedSizeIndex === index
-                                            ? "white"
-                                            : "black",
-                                }}
-                            >
-                                {size}
-                            </div>
-                        ))}
-                    </div>
-                    <button
-                        className="productButton"
-                        onClick={() => setIsPaymentOpen(true)}
-                    >
-                        BUY NOW!
-                    </button>
+                <div className="productLeft">
+                    <img
+                        src={choosenProduct.colors[selectedColorIndex].img}
+                        alt=""
+                        className="productImg"
+                    />
                 </div>
 
+                {/* RIGHT SIDE */}
+                <div className="productRight">
+                    <div className="productDetails">
+                        <Link to="/">
+                            <button className="backButton">BACK</button>
+                        </Link>
+
+                        <h1 className="productTitle">{choosenProduct.title}</h1>
+                        <h2 className="productPrice">
+                            ₱{choosenProduct.price}
+                        </h2>
+                        <p className="productDesc">{choosenProduct.desc}</p>
+
+                        <div className="colors">
+                            {choosenProduct.colors.map((color, index) => (
+                                <div
+                                    className="color"
+                                    key={index}
+                                    onClick={() => setSelectedColorIndex(index)}
+                                ></div>
+                            ))}
+                        </div>
+
+                        <div className="sizes">
+                            {SIZES.map((size, index) => (
+                                <div
+                                    className="size"
+                                    key={index}
+                                    onClick={() => setSelectedSizeIndex(index)}
+                                >
+                                    {size}
+                                </div>
+                            ))}
+                        </div>
+
+                        <button
+                            className="productButton"
+                            onClick={() => setIsPaymentOpen(true)}
+                        >
+                            BUY NOW!
+                        </button>
+                    </div>
+                </div>
                 {/* Payment Form */}
                 <div
                     className="payment"

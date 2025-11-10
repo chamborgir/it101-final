@@ -54,6 +54,11 @@ nav{
     color: lightgrey;
 }
 
+/* This is the class for highlighting the active menu item */
+.menuItem.active {
+    color: black;
+}
+
 .return{
     padding: 10px;
     border-radius: 10px;
@@ -66,7 +71,6 @@ nav{
 .return:hover{
     opacity: 0.85;
 }
-
 
 .return:active {
     opacity: 0.7;
@@ -129,8 +133,8 @@ nav{
 .buyButton{
     position: absolute;
     top: 50%;
-    right: 10%;
-    font-size: 30px;
+    right: 13%;
+    font-size: 32px;
     font-weight: 900;
     text-align: center;
     color: black;
@@ -149,8 +153,8 @@ nav{
 .soldOutButton{
     position: absolute;
     top: 50%;
-    right: 10%;
-    font-size: 30px;
+    right: 11%;
+    font-size: 32px;
     font-weight: 900;
     text-align: center;
     color: red;
@@ -165,6 +169,7 @@ nav{
 
 
 
+/* Slider Colors */
 .sliderItem:nth-child(1) .sliderBg{
     background-color:rgb(11, 138, 193);
 }
@@ -180,7 +185,6 @@ nav{
 .sliderItem:nth-child(5) .sliderBg{
     background-color:rgb(193, 11, 32);
 }
-
 
 .sliderItem:nth-child(1) .sliderPrice{
     color:rgb(11, 138, 193);
@@ -220,11 +224,9 @@ nav{
     height: 50px;
 }
 
-
 .featureTitle{
     font-size: 20px;
     font-weight: 600;
-    margin: 20;
 }
 
 .featureDesc{
@@ -235,23 +237,33 @@ nav{
 
 
 
-/* Product Section */
+/* PRODUCT SECTION (UPDATED LAYOUT) */
 .product{
+    display: flex;
     height: 110vh;
     background-color: whitesmoke;
-    position: relative;
+}
+
+.productLeft{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.productRight{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .productImg{
-    width: 50%;
+    width: 90%;
 }
 
 .productDetails{
-    position: absolute;
-    top: 10%;
-    right: 0;
-    width: 40%;
-    padding: 50px;
+    width: 80%;
 }
 
 .productTitle{
@@ -260,13 +272,12 @@ nav{
 }
 
 .productDesc{
-    font-style: 24px;
+    font-size: 24px;
 }
 
 .colors, .sizes{
     display: flex;
     margin-bottom: 20px;
-    
 }
 
 .color{
@@ -292,7 +303,7 @@ nav{
 
 .productButton{
     float: right;
-    padding: 10px 20px;
+    padding: 15px 20px;
     background-color: black;
     color: white;
     font-weight: 600;
@@ -300,6 +311,24 @@ nav{
 }
 
 .productButton:hover{
+    background-color: white;
+    color: black;
+}
+
+/* BACK BUTTON */
+.backButton {
+    float: right;
+    padding: 15px 20px;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 30px;   /* ✅ added */
+    border: none;
+}
+
+.backButton:hover {
     background-color: white;
     color: black;
 }
@@ -321,9 +350,6 @@ nav{
     display: none;
     flex-direction: column;
     box-shadow: 11px 13px 25px -7px rgba(0,0,0,0.83);
-    -webkit-box-shadow: 11px 13px 25px -7px rgba(0,0,0,0.83);
-    -moz-box-shadow: 11px 13px 25px -7px rgba(0,0,0,0.83);
-
 }
 
 .payTitle{
@@ -349,7 +375,6 @@ label{
 
 .cardIcons{
     display: flex;
-
 }
 
 .cardIcon{
@@ -373,8 +398,6 @@ label{
     left: 0;
     border: none;
     box-shadow: 11px 13px 25px -7px rgba(0,0,0,0.83);
-    -webkit-box-shadow: 11px 13px 25px -7px rgba(0,0,0,0.83);
-    -moz-box-shadow: 11px 13px 25px -7px rgba(0,0,0,0.83);
     cursor: pointer;
     background-color: green;
     color: white;
@@ -399,7 +422,6 @@ label{
 /* Footer Section */
 footer{
     display: flex;
-
 }
 
 .footerLeft{
@@ -413,12 +435,10 @@ footer{
     font-size: 16px;
 }
 
-
 .fList{
     padding: 0;
     list-style: none;
 }
-
 
 .fListItem{
     margin-bottom: 10px;
@@ -458,19 +478,18 @@ footer{
 .madeby{
     font-weight: 300;
     font-size: 14px;
-
 }
 
 
 
+/* MOBILE RESPONSIVE */
 @media screen and (max-width:480px) {
+
     nav{
         padding: 20px;
     }
 
-    .search{
-        display: none;
-    }
+    .search{ display: none; }
 
     .reseller{
         font-size: 15px;
@@ -490,13 +509,13 @@ footer{
     .sliderImg{
         width: 90%;
     }
+
     .sliderBg{
         width: 100%;
         height: 100%;
     }
-    .sliderTitle{
-        display: none;
-    }
+
+    .sliderTitle{ display: none; }
 
     .sliderPrice{
         top: unset;
@@ -524,15 +543,20 @@ footer{
     }
 
     .product{
-        display: flex;
         flex-direction: column;
-        align-items: center;
+        height: auto;
+        position: relative;
+
+    }
+
+    .productLeft,
+    .productRight{
+        width: 100%;
     }
 
     .productImg{
         width: 80%;
     }
-
 
     .productDetails{
         width: 100%;
@@ -541,18 +565,6 @@ footer{
         flex-direction: column;
         align-items: center;
         text-align: center;
-        position: relative;
-        top: 0;
-    }
-
-    .productTitle{
-        font-size: 50px;
-        margin: 0;
-    }
-
-    .productDesc{
-        text-align: justify;
-        padding: 15px;
     }
 
     footer{
@@ -576,4 +588,9 @@ footer{
         width: 90%;
         padding: 20px;
     }
+
+    .productImg {
+    width: 85%;
+}
+
 }
