@@ -122,6 +122,7 @@ nav{
 
 .sliderPrice{
     position: absolute;
+    border-radius: 5px;
     top: 10%;
     left: 10%;
     font-size: 60px;
@@ -132,21 +133,22 @@ nav{
 
 .buyButton{
     position: absolute;
+    padding: 15px;
     top: 50%;
     right: 13%;
     font-size: 32px;
     font-weight: 900;
     text-align: center;
-    color: black;
-    border: 1px solid gray;
-    background-color: white;
+    color: rgb(255, 255, 255);
+    border: none;
+    background-color: rgb(15, 139, 42);
     z-index: 1;
     cursor: pointer;
     border-radius: 15px;
 }
 
 .buyButton:hover{
-    background-color: black;
+    background-color: rgb(12, 109, 33);
     color: white;
 }
 
@@ -325,12 +327,15 @@ nav{
     cursor: pointer;
     margin-bottom: 20px;
     margin-top: 30px;   /* ✅ added */
-    border: none;
+    border: 1px solid gray;
+
+
 }
 
 .backButton:hover {
     background-color: white;
     color: black;
+    border: 1px solid black;
 }
 
 
@@ -448,7 +453,7 @@ footer{
 
 .footerRight{
     flex:1;
-    padding: 50px;
+    padding: 70px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

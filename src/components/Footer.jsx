@@ -79,11 +79,6 @@ function Footer() {
                             />
                         </div>
                     </div>
-                    <div className="footerRightMenu">
-                        <span className="madeby">
-                            Made by: Rochambeau V. Boquilon
-                        </span>
-                    </div>
                 </div>
             </footer>
         </div>
