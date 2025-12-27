@@ -12,18 +12,15 @@ function NavBar({ page }) {
 
     return (
         <nav>
-            {/* This navTop is ALSO conditional based on the 'page' prop */}
             <div className="navTop">
-                {/* This is the new conditional logic: */}
                 {page === "home" ? (
-                    <div className="logo"></div> // The empty logo div from index.html
+                    <div className="logo"></div>
                 ) : (
                     <div className="navbarItem">
                         <img src="img/logo.png" width="250" alt="logo" />
                     </div>
                 )}
 
-                {/* The rest of the navTop remains the same for both pages */}
                 <div className="navItem">
                     <div className="search">
                         <input
