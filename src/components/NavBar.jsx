@@ -1,31 +1,33 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate to go back
 
 /**
- * A reusable Navbar component.
  * @param {object} props
- * @param {'home' | 'product'} props.page - Specifies which navBottom to render.
+ * @param {'home' | 'product'} props.page
  */
 function NavBar({ page }) {
-    // onMenuClick prop is no longer needed
-    const navigate = useNavigate(); // Get the navigate function from the router
-
     return (
         <nav>
             <div className="navTop">
-                {page === "home" ? (
-                    <div className="logo"></div>
-                ) : (
-                    <div className="navbarItem">
-                        <img src="img/logo.png" width="250" alt="logo" />
-                    </div>
-                )}
+                {/* Logo Section */}
+                <div className="navItem">
+                    {page === "home" ? (
+                        <h2 className="logoText">RESELLER</h2>
+                    ) : (
+                        <img
+                            src="img/logo.png"
+                            width="180"
+                            alt="Nike Logo"
+                            className="logoImg"
+                        />
+                    )}
+                </div>
 
+                {/* Search Section */}
                 <div className="navItem">
                     <div className="search">
                         <input
                             type="text"
-                            placeholder="Search"
+                            placeholder="Search..."
                             className="searchInput"
                         />
                         <img
@@ -37,6 +39,7 @@ function NavBar({ page }) {
                         />
                     </div>
                 </div>
+
                 <div className="navItem">
                     <p className="reseller">
                         Unofficial <b>Nike™</b> Reseller

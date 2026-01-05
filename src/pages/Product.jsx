@@ -93,7 +93,6 @@ function Product() {
                     <input type="text" className="payInput" />
                     <label>Address</label>
                     <input type="text" className="payInput" />
-
                     <h1 className="payTitle">Card Information</h1>
                     <div className="cardIcons">
                         <img
@@ -131,8 +130,9 @@ function Product() {
                             className="payInput sm"
                         />
                     </div>
-
-                    <button className="payButton">CHECK OUT</button>
+                    <button type="button" className="payButton">
+                        CHECK OUT
+                    </button>{" "}
                     <span
                         className="close"
                         onClick={() => setIsPaymentOpen(false)}

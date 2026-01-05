@@ -1,36 +1,30 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// Fix: Removed file extensions from imports, as this can sometimes cause resolution issues.
 import { products } from "../data";
 
 function Home() {
     const [slideIndex, setSlideIndex] = useState(0);
 
-    // This click handler is simplified and now lives in Home.jsx
     const handleMenuClick = (index) => {
         setSlideIndex(index % products.length);
     };
 
     return (
         <>
-            {/* The Menu Items are now part of the Homepage, not the NavBar */}
             <div className="navBottom">
                 <h3
-                    /* This logic adds the 'active' class when slideIndex is 0 */
                     className={`menuItem ${slideIndex === 0 ? "active" : ""}`}
                     onClick={() => handleMenuClick(0)}
                 >
                     AIR FORCE
                 </h3>
                 <h3
-                    /* This logic adds the 'active' class when slideIndex is 1 */
                     className={`menuItem ${slideIndex === 1 ? "active" : ""}`}
                     onClick={() => handleMenuClick(1)}
                 >
                     JORDAN
                 </h3>
                 <h3
-                    /* This logic adds the 'active' class when slideIndex is 2 */
                     className={`menuItem ${slideIndex === 2 ? "active" : ""}`}
                     onClick={() => handleMenuClick(2)}
                 >
@@ -38,13 +32,11 @@ function Home() {
                 </h3>
             </div>
 
-            {/* Product Slider is now dynamic */}
             <div className="slider">
                 <div
                     className="sliderWrapper"
                     style={{ transform: `translateX(${-100 * slideIndex}vw)` }}
                 >
-                    {/* We map over the products array to create a slide for each one */}
                     {products.map((product) => (
                         <div className="sliderItem" key={product.id}>
                             <img
@@ -61,14 +53,12 @@ function Home() {
                                 NEW <br />
                                 SEASON
                             </h1>
-                            {/* Fixed typo: SsliderBg -> sliderBg */}
                             <h2
                                 className="sliderPrice"
                                 style={{ color: product.sliderBg }}
                             >
                                 ₱{product.price}
                             </h2>
-                            {/* Check if sold out, otherwise link to the correct product page */}
                             {product.isSoldOut ? (
                                 <button className="soldOutButton">
                                     SOLD OUT
@@ -85,7 +75,6 @@ function Home() {
                 </div>
             </div>
 
-            {/* Features Section (no change) */}
             <div className="features">
                 <div className="feature">
                     <img

@@ -1,16 +1,11 @@
-// This file acts as a mock database for all our products.
-
 export const products = [
     {
         id: 1,
         title: "AIR FORCE",
         price: "6,499",
-        // This is the main image for the slider
         img: "img/air.png",
-        // These colors are from the original style.css
         sliderBg: "rgb(11, 138, 193)",
         isSoldOut: false,
-        // This 'details' object is for the product page
         details: {
             title: "Nike Air Force 1 Mid '07 LX",
             desc: 'Once upon a midnight dreary, this Air Force 1 looked extra eerie. Shadows crept from beneath the "AIR" while ghoulish green accents added Halloween flair. And that black leather upper with reflective-design coating … well, it lets others know they better beware. You get the idea.',
@@ -33,7 +28,7 @@ export const products = [
             desc: "Inspired by the original AJ1, this mid-top edition maintains the iconic look you love while choice colors and crisp leather give it a distinct identity.",
             colors: [
                 { code: "rgb(187, 36, 36)", img: "img/jordan.png" },
-                { code: "rgb(36, 110, 187)", img: "img/jordan2.png" }, // Assuming you have a jordan2.png
+                { code: "rgb(36, 110, 187)", img: "img/jordan2.png" },
             ],
             sizes: [40, 41, 42, 43, 44, 45],
         },
@@ -50,7 +45,7 @@ export const products = [
             desc: "In the ‘70s, Nike was the new shoe on the block. We were still breaking into the basketball scene and testing prototypes on the feet of our local team. Of course, the design improved over the years, but the name stuck.",
             colors: [
                 { code: "rgb(240, 240, 240)", img: "img/blazer.png" },
-                { code: "black", img: "img/blazer2.png" }, // Assuming you have a blazer2.png
+                { code: "black", img: "img/blazer2.png" },
             ],
             sizes: [39, 40, 41, 42, 43],
         },
@@ -67,7 +62,7 @@ export const products = [
             desc: "Today's world brings choices. That's why we've chosen to craft this everyday staple from at least 20% recycled materials by weight. The Crater Remixa is a one-way ticket to a waste-reduced world.",
             colors: [
                 { code: "white", img: "img/crater.png" },
-                { code: "gray", img: "img/crater2.png" }, // Assuming you have a crater2.png
+                { code: "gray", img: "img/crater2.png" },
             ],
             sizes: [40, 42, 44, 45, 46],
         },
@@ -84,7 +79,7 @@ export const products = [
             desc: "The Space Hippie 04 is made of at least 25% recycled material by weight. Not only is it the most lightweight silhouette within the collection, it also has the lowest carbon footprint.",
             colors: [
                 { code: "rgb(168, 168, 168)", img: "img/hippie.png" },
-                { code: "rgb(95, 126, 136)", img: "img/hippie2.png" }, // Assuming you have a hippie2.png
+                { code: "rgb(95, 126, 136)", img: "img/hippie2.png" },
             ],
             sizes: [39, 40, 42, 44],
         },
