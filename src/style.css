@@ -75,6 +75,7 @@ nav{
 }
 
 .menuItem{
+    font-size: 18px;
     margin-right: 50px;
     cursor: pointer;
     font-weight: 400;
@@ -482,7 +483,7 @@ label {
 /* Footer Section */
 footer{
     display: flex;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .footerLeft{
@@ -493,7 +494,7 @@ footer{
 }
 
 .fMenuTitle{
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .fList{
