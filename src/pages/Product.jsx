@@ -1,4 +1,3 @@
-// src/pages/Product.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -88,11 +87,24 @@ function Product() {
                 <div className="payment">
                     <h1 className="payTitle">Personal Information</h1>
                     <label>Name</label>
-                    <input type="text" className="payInput" />
+                    <input
+                        type="text"
+                        placeholder="John Doe"
+                        className="payInput"
+                    />
                     <label>Phone Number</label>
-                    <input type="text" className="payInput" />
+                    <input
+                        type="text"
+                        placeholder="+63 912 345 6789"
+                        className="payInput"
+                    />
                     <label>Address</label>
-                    <input type="text" className="payInput" />
+                    <input
+                        type="text"
+                        placeholder="Street, City, Province"
+                        className="payInput"
+                    />
+
                     <h1 className="payTitle">Card Information</h1>
                     <div className="cardIcons">
                         <img
@@ -110,6 +122,7 @@ function Product() {
                     </div>
                     <input
                         type="password"
+                        password
                         className="payInput"
                         placeholder="Card Number"
                     />
@@ -130,9 +143,8 @@ function Product() {
                             className="payInput sm"
                         />
                     </div>
-                    <button type="button" className="payButton">
-                        CHECK OUT
-                    </button>{" "}
+
+                    <button className="payButton">CHECK OUT</button>
                     <span
                         className="close"
                         onClick={() => setIsPaymentOpen(false)}
